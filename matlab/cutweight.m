@@ -1,6 +1,6 @@
 function [weight] = cutweight(S1, S2, filename)
     % Calculates the weight achieved by a given cut.
-    loadData = importdata("java/" + filename);
+    loadData = importdata("graphs/" + filename);
     weight = 0;
     for i = 2:3:length(loadData)
         % +1 because Matlab starts counting at 1 whereas our graphs' nodes

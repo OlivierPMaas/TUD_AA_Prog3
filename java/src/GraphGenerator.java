@@ -48,7 +48,7 @@ public class GraphGenerator {
 		if (edge.length() > 5)
 			edge = edge.substring(0, 6);
 		String id = String.format("%02d", nr);
-		String filename = "maxcut_"+nodes+"_"+edge+"_"+maxWeight+"_instance_"+id;
+		String filename = "../graphs/maxcut_"+nodes+"_"+edge+"_"+maxWeight+"_instance_"+id;
 		
 		
 		//write the file

@@ -8,7 +8,7 @@ function [S1, S2, weight, sdpweight] = main(filename)
     % Try cut based on random vector
     % until we've found one that is good enough.
     weight = -1;
-    while weight < 0.87856 * obj 
+    while weight < 0.87856 * obj
         r = random_vector(n);
         [S1, S2] = gw_round(B, r);
         weight = cutweight(S1, S2, filename);

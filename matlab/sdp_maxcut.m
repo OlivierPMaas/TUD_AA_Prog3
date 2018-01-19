@@ -1,5 +1,5 @@
 function [Y, obj, n, solvertime] = sdp_maxcut(filename)
-    loadData = importdata("java/" + filename);
+    loadData = importdata("graphs/" + filename);
     n = loadData(1);
     % Weight matrix buildup.
     W = zeros(n,n);
