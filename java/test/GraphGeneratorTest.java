@@ -6,6 +6,7 @@ class GraphGeneratorTest {
 
     @Test
     void Test1() {
-        GraphGenerator.main();
+        String[] args = {"5", "0.5", "4", "1"};
+        GraphGenerator.main(args);
     }
 }
