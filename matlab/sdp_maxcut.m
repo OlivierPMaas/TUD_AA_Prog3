@@ -1,5 +1,5 @@
 function [Y, solvertime] = sdp_maxcut(filename)
-    loadData = importdata("java\" + filename);
+    loadData = importdata("java/" + filename);
     n = loadData(1);
     % Weight matrix buildup.
     W = zeros(n,n);
@@ -27,9 +27,12 @@ function [Y, solvertime] = sdp_maxcut(filename)
     end
     
     % Constraints
-    cons = [Y >= 0];
+    cons = [];
     for idx = 1:n
         cons = [cons, Y(idx,idx) == 1];
+        for idx2 = 1:n
+            cons = [cons, Y(idx, idx2) >= 0]
+        end
     end
 
     sol = solvesdp(cons, obj, ops);
