@@ -1,11 +1,11 @@
 fid = fopen('test.csv', 'w');
-fprintf(fid, 'n,p,maxweight,weight,sdpweight,time\n');
+fprintf(fid, 'n,p,maxedgeweight,lowbound,cutweight,sdpweight,time\n');
 files = dir('graphs')';
 files = files(3:end); % Ignore "." and "..".
 for file = files
     f=file.name;
     tic;
-    [S1, S2, weight, sdpweight] = main(f);
+    [S1, S2, lowbound, weight, sdpweight] = main(f);
     time = toc;
     x=regexp(f, '\d*');
     y=regexp(f, '_');
@@ -19,6 +19,6 @@ for file = files
     end
     maxweight = f(x(3):y(4)-1);
     
-    fprintf(fid, strcat(n,',',p,',',maxweight,',',num2str(weight),',',num2str(sdpweight,5),',',num2str(time,5),'\n'));
+    fprintf(fid, strcat(n,',',p,',',maxweight,',',num2str(lowbound),',',num2str(weight),',',num2str(sdpweight,5),',',num2str(time,5),'\n'));
 end
 fclose(fid);
