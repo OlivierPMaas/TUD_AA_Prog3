@@ -1,6 +1,16 @@
-function [Y, solvertime] = sdp_maxcut(W)
+function [Y, solvertime] = sdp_maxcut(filename)
+    loadData = importdata("java\" + filename);
+    n = loadData(1);
+    % Weight matrix buildup.
+    W = zeros(n,n);
+    for i = 2:3:length(loadData)
+        % +1 because generated graph numbers nodes starting from 0,
+        % but indices of matlab matrices start at 1.
+        W(loadData(i)+1,loadData(i+1)+1) = loadData(i+2);
+        W(loadData(i+1)+1,loadData(i)+1) = loadData(i+2);
+    end 
+
     % Approximation SDP solver of the Max-Cut problem.
-    n = length(W);
     ops = sdpsettings('solver','sedumi');
     Y = sdpvar(n,n);
 

@@ -1,5 +1,6 @@
 java/.idea/*
 java/java.iml
-
-.iws
 java/out/
+
+*.iws
+*.asv
