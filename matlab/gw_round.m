@@ -5,9 +5,9 @@ function [S1, S2] = gw_round(B, r)
     S2 = [];
     for i = 1:n
         if dot(B(:,i), r) >= 0
-            S1 = [S1, i] % It's on one side of the cut
+            S1 = [S1, i]; % It's on one side of the cut
         else
-            S2 = [S2, i] % It's on the other side of the cut
+            S2 = [S2, i]; % It's on the other side of the cut
         end
     end
 end
