@@ -1,4 +1,4 @@
-function [S1, S2, lowbound, weight, sdpweight] = main(filename)
+function [S1, S2, lowbound, weight, sdpweight, trials] = main(filename)
     % Maxcut approximation
     
     % Solve SDP
