@@ -11,4 +11,3 @@ function [S1, S2] = gw_round(B, r)
         end
     end
 end
-
